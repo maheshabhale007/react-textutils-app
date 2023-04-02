@@ -7,16 +7,19 @@ export default function TextFrom(props) {
     let newText = text.toUpperCase();
     // setText('You have clicked on the handleUpClick');
     setText(newText);
+    props.showAlert("Converted to Uppercase", "success");
   }
 
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase", "success");
   }
 
   const handleClearClick = () => {
     let newText = '';
     setText(newText);
+    props.showAlert("Text Cleared", "success");
   }
 
   const handleCopy = () => {
@@ -25,12 +28,14 @@ export default function TextFrom(props) {
     text.select();
     // text.setSelectionRange(0, 9999);
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Text Copied to Clipboard", "success");
   }
 
   const handleExtraSpaces = () => {
     console.log('spaces removed');
     let newText = text.split(/[ ]+/);
     setText(newText.join(' '));
+    props.showAlert("Extra Spaces Removed", "success");
   }
 
   const handleOnChange = (event) => {
